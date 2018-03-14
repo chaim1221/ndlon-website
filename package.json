@@ -1,0 +1,57 @@
+{
+  "name": "ndlon-website",
+  "version": "0.0.1",
+  "description": "static page for ndlon.org",
+  "main": "index.js",
+  "scripts": {
+    "build": "create-index -r -i src/ --extensions jsx js && webpack -d",
+    "create-component": "yo ./yeoman",
+    "serve": "node backend/server.js",
+    "start": "npm run build && node --inspect backend/server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaim1221/ndlon-website.git"
+  },
+  "keywords": [
+    "national",
+    "day",
+    "laborer",
+    "organizing",
+    "network"
+  ],
+  "author": "Chaim Eliyah",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/chaim1221/ndlon-website/issues"
+  },
+  "homepage": "https://github.com/chaim1221/ndlon-website#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "create-index": "^2.3.0",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "jest": "^22.4.2",
+    "node-sass": "^4.7.2",
+    "open-browser-webpack-plugin": "0.0.5",
+    "sass-loader": "^6.0.7",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-hot-middleware": "^2.21.0",
+    "yeoman-generator": "^2.0.3",
+    "yo": "^2.0.1"
+  }
+}
