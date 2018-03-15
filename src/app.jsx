@@ -5,5 +5,5 @@ import css from './global.scss';
 import Site from './components/Site.jsx';
 
 export default {
-  init: ReactDOM.render(<Site />, document.getElementById('root'))
+  init: () => ReactDOM.render(<Site />, document.getElementById('root'))
 }
