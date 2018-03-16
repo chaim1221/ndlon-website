@@ -1,0 +1,14 @@
+# https://docs.travis-ci.com/user/docker
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ndlon-website .
+  - docker run -d -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:80:8080 --rm ndlon-website
+  - docker ps -a
+
+script:
+  - curl 127.0.0.1:80
