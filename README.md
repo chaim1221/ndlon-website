@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chaim1221/ndlon-website.svg?branch=master)](https://travis-ci.org/chaim1221/ndlon-website)
+
 #### Who
 @chaim1221 (Chaim Eliyah)
 
