@@ -17,6 +17,11 @@ Also, I wanted to create a React app.
 
 #### How
 `npm start` is most likely what you're looking for.  
-More to follow as time permits.
+`npm serve` will just serve the website without debug.
+
+Docker:  
+
+docker build -t ndlon-website .
+docker run -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 8080:8080 --rm ndlon-website
 
 Version: `0.0.1`
