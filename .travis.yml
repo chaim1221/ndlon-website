@@ -9,7 +9,7 @@ before_install:
   - docker build -t ndlon-website .
   - docker run -d -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:80:8080 --rm ndlon-website
   - docker ps -a
-  - docker tag website ndlon.azurecr.io/ndlon-website:v1
+  - docker tag ndlon-website ndlon.azurecr.io/ndlon-website:v1
 
 script:
   - wget --retry-connrefused --waitretry=1 http://127.0.0.1:80
