@@ -32,4 +32,7 @@ Note that the above will be done for you if you're committing and pushing to cha
 `brew update && brew install azure-cli` (see #1)
 Then use the [Azure container deploy documentation](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr); this is a manual step for now, for Active Directory reasons.
 
+More about authentication in the Azure domain: 
+https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
+
 Version: `0.0.1`

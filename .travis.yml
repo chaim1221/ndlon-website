@@ -7,7 +7,9 @@ services:
 
 before_install:
   - docker build -t ndlon-website .
-  - docker run -d -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:80:8080 --rm ndlon-website
+  # This creates a mounted volume, and fails in production:
+  #  - docker run -d -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:80:8080 --rm ndlon-website
+  - docker run -d -p 80:8080 ndlon-website
   - docker ps -a
   - docker tag ndlon-website ndlon.azurecr.io/ndlon-website:v1
 
