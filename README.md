@@ -26,4 +26,9 @@ Docker:
 docker build -t ndlon-website .
 docker run -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 8080:8080 --rm ndlon-website
 
+Note that the above will be done for you if you're committing and pushing to chaim1221/ndlon-website.
+
+##### Azure CLI
+`brew update && brew install azure-cli`
+
 Version: `0.0.1`
