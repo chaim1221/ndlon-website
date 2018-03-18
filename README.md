@@ -35,4 +35,12 @@ Then use the [Azure container deploy documentation](https://docs.microsoft.com/e
 More about authentication in the Azure domain: 
 https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
 
+tl;dr:  
+
+```
+az container delete --resource-group ndlon-website --name ndlon-website # optionally; careful
+az container create --resource-group ndlon-website --name ndlon-website --image ndlon.azurecr.io/ndlon-website:v1 --cpu 1 --memory 1 --registry-username {username} --registry-password {password} --dns-name-label ndlon-website --ports 8080
+az container show --resource-group ndlon --name ndlon-website --query instanceView.state
+```
+
 Version: `0.0.1`
