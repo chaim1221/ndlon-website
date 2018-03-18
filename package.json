@@ -6,7 +6,7 @@
   "scripts": {
     "build": "create-index -r -i src/ --extensions jsx js && webpack -d",
     "create-component": "yo ./yeoman",
-    "serve": "node backend/server.js",
+    "serve": "node backend/server.js --production",
     "start": "npm run build && node --inspect backend/server.js",
     "test": "jest",
     "watch": "webpack -d --watch"
