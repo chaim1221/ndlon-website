@@ -7,11 +7,18 @@ services:
 
 before_install:
   - docker build -t ndlon-website .
-  # This creates a mounted volume, and fails in production:
-  #  - docker run -d -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:80:8080 --rm ndlon-website
-  - docker run -d -p 80:8080 ndlon-website
+  ######
+  # # This creates a mounted volume, and fails in production; 
+  # # leaving as example for containers that will need mounts
+  # docker run -d -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:80:8080 --rm ndlon-website
+  ######
+  # # running on port 80 because we want to match prod (azure doesn't do port forwarding)
+  # # note: if you are testing locally, you might want to use a different port mapping,
+  # # such as 8080:80
+  - docker run -d -p 80:80 ndlon-website
   - docker ps -a
-  - docker tag ndlon-website ndlon.azurecr.io/ndlon-website:v1
+  # # this is for deploying via the Azure CLI; unfortunately, we don't have it working in Travis
+  # docker tag ndlon-website ndlon.azurecr.io/ndlon-website:v1
 
 script:
   - wget --retry-connrefused --waitretry=1 http://127.0.0.1:80
