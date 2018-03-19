@@ -17,11 +17,11 @@ March 2018, late at night
 The ndlon.org site got hacked.  
 Also, I wanted to create a React app.
 
-#### How
+#### npm
 `npm start` is most likely what you're looking for.  
-`npm serve` will just serve the website without debug.
+`npm serve` is for production (i.e., building the container).
 
-Docker:  
+#### Docker  
 
 docker build -t ndlon-website .
 docker run -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 8080:8080 --rm ndlon-website
@@ -30,15 +30,16 @@ Note that the above will be done for you if you're committing and pushing to cha
 
 ##### Azure CLI
 `brew update && brew install azure-cli` (see #1)
+
 Then use the [Azure container deploy documentation](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr); this is a manual step for now, for Active Directory reasons.
 
-More about authentication in the Azure domain: 
-https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
-
-tl;dr:  
+##### tl;dr
+ - Manually delete the container if it exists.
+ - Then:
 
 ```
-az container delete --resource-group ndlon-website --name ndlon-website # optionally; careful
+az acr login --name={username}
+docker push ndlon.azurecr.io/ndlon-website:v1
 az container create --resource-group ndlon-website --name ndlon-website --image ndlon.azurecr.io/ndlon-website:v1 --cpu 1 --memory 1 --registry-username {username} --registry-password {password} --dns-name-label ndlon-website --ports 8080
 az container show --resource-group ndlon --name ndlon-website --query instanceView.state
 ```
